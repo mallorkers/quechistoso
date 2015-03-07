@@ -1,4 +1,6 @@
 .vagrant
+static/
+*.pyc
 
 # Mac Os filesystem
 .DS_Store

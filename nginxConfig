@@ -1,0 +1,16 @@
+server{
+  listen 80;
+
+  location /static {
+    root /vagrant;
+    try_files $uri @vagrantTest;
+  }
+
+  location / { try_files $uri @vagrantTest; }
+
+  location @vagrantTest {
+    include uwsgi_params;
+    uwsgi_modifier1 30;
+    uwsgi_pass 127.0.0.1:3031;
+  }
+}

@@ -1,8 +1,12 @@
 from flask import Flask
 from pymongo import MongoClient
-app = Flask(__name__)
+flaskApp = Flask(__name__)
 
-@app.route('/')
+@flaskApp.route('/hola')
+def hola():
+	return '<h1>Hallo?</h1>'
+
+@flaskApp.route('/')
 def hello_world():
     client = MongoClient()
     db = client.vagrantTests
@@ -10,4 +14,4 @@ def hello_world():
     return str(users.find_one()['age'])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    flaskApp.run(host='0.0.0.0', debug=True)
