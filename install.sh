@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
-sudo pip install Flask pymongo uwsgi
+#sudo apt-get update
+#sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
+#sudo pip install Flask pymongo uwsgi
 
 sudo rm /etc/nginx/sites-enabled/*
 
@@ -22,8 +22,8 @@ respawn
 exec uwsgi --master --emperor /etc/uwsgi/apps-enabled/*.ini --die-on-term --uid www-data --gid www-data 
 EOF
 
-sudo update-rc.d nginx enable
-sudo update-rc.d uwsgi enable
+sudo update-rc.d nginx defaults
+sudo update-rc.d uwsgi defaults
 
 sudo service uwsgi restart
 sudo service nginx restart
