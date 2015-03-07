@@ -8,9 +8,9 @@ sudo rm /etc/nginx/sites-enabled/*
 
 # First option was to link from apps-enabled to the /vagrant config files, but later on
 # I discovered that doing so it would break nginx and uwsgi since the services are started
-# before the /vagrant folder gets mounted, so the servers never can read the config files
-cat /vagrant/vagrant_uwsgi.ini | sudo tee /etc/uwsgi/apps-enabled/vagrant_uwsgi.ini
-cat /vagrant/nginxConfig | sudo tee /etc/nginx/sites-enabled/queChistoso
+# before the /vagrant folder gets mounted, so the servers won't read the config files
+cat /vagrant/configs/vagrant_uwsgi.ini | sudo tee /etc/uwsgi/apps-enabled/vagrant_uwsgi.ini
+cat /vagrant/configs/nginxConfig | sudo tee /etc/nginx/sites-enabled/queChistoso
 
 # Here we add the init declaration so the uwsgi server starts at startup
 sudo tee /etc/init/uwsgi.conf <<EOF
@@ -27,3 +27,6 @@ sudo update-rc.d uwsgi enable
 
 sudo service uwsgi restart
 sudo service nginx restart
+
+#TODO: Secure mongo installation
+#TODO: Secure installation (only login by key)
