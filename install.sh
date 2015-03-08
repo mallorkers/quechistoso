@@ -12,14 +12,16 @@ sudo rm /etc/nginx/sites-enabled/*
 cat /vagrant/configs/vagrant_uwsgi.ini | sudo tee /etc/uwsgi/apps-enabled/vagrant_uwsgi.ini
 cat /vagrant/configs/nginxConfig | sudo tee /etc/nginx/sites-enabled/queChistoso
 
+#TODO: Decide if continue to setup services this way or modify the upstart jobs to start on vagrant-mount
+
 # Here we add the init declaration so the uwsgi server starts at startup
 sudo tee /etc/init/uwsgi.conf <<EOF
 description "uWSGI"
-start on runlevel [2345]
-stop on runlevel [06]
+start on vagrant-mounted
+stop on runlevel [!2345]
 respawn
 
-exec uwsgi --master --emperor /etc/uwsgi/apps-enabled/*.ini --die-on-term --uid www-data --gid www-data 
+exec uwsgi --master --emperor /etc/uwsgi/apps-enabled/*.ini --die-on-term --uid www-data --gid www-data --logto /var/log/uwsgi/app/%n.log
 EOF
 
 sudo update-rc.d nginx defaults
