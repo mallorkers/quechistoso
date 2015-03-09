@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#sudo apt-get update
-#sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
-#sudo pip install Flask pymongo uwsgi
+sudo apt-get update
+sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
+sudo pip install Flask pymongo uwsgi
 
 sudo rm /etc/nginx/sites-enabled/*
 
@@ -14,14 +14,16 @@ cat /vagrant/configs/nginxConfig | sudo tee /etc/nginx/sites-enabled/queChistoso
 
 #TODO: Decide if continue to setup services this way or modify the upstart jobs to start on vagrant-mount
 
-# Here we add the init declaration so the uwsgi server starts at startup
+# Here we add the init declaration so the uwsgi server starts after vagrant folder gets mounted
 sudo tee /etc/init/uwsgi.conf <<EOF
 description "uWSGI"
 start on vagrant-mounted
 stop on runlevel [!2345]
+expect fork
 respawn
+respawn limit 10 5
 
-exec uwsgi --master --emperor /etc/uwsgi/apps-enabled/*.ini --die-on-term --uid www-data --gid www-data --logto /var/log/uwsgi/app/%n.log
+exec uwsgi --master --emperor /etc/uwsgi/apps-enabled/*.ini --die-on-term --uid www-data --gid www-data --logto /var/log/uwsgi/app/vagrant.log
 EOF
 
 sudo update-rc.d nginx defaults
