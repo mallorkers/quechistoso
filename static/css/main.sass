@@ -1,0 +1,73 @@
+@import 'reset.css'
+@import 'http://fonts.googleapis.com/css?family=Montserrat:400,700'
+
+$headerColor: #7a9dc8
+$headerColorDarker: $headerColor - #333
+$baseColor:   #80bce5
+$baseDarker:  #74abd0
+$almostWhite: #fafafa
+$accentWhite: #edebe9
+$darkWhite:   #dcdad8
+$dark:        #353535
+
+body
+	font-size: 16px
+	font-family: "Montserrat"
+
+a, a:visited, a:link
+	font-style: none
+	text-decoration: none
+	color: $dark
+
+button
+	display: block
+	margin: 0 .2rem
+	position: relative
+	top: 1rem
+	float: right
+
+	border: 2px solid $almostWhite
+	color: $almostWhite
+	font-size: 1rem
+	font-weight: 700
+	border-radius: 4px
+	cursor: pointer
+	background: none
+	transition: background-color .3s
+
+button:hover
+	color: $headerColor
+	background-color: $almostWhite
+
+.header
+	height: 4rem
+	display: block
+	font-size: 2rem
+	padding: 0 .8rem
+	position: relative
+	top: 0
+	overflow: hidden
+	background-color: $headerColor
+
+	li
+		display: block
+		float: left
+		height: 4rem
+		width: auto
+		padding: 0 .5rem
+		transition: background-color .3s
+		a
+			height: 100%
+			display: block
+			span
+				transition: text-shadow .3s
+				color: $almostWhite
+				position: relative
+				font-weight: 400
+				top: 25%
+
+	li:hover
+		background-color: $headerColorDarker
+
+	li:hover a
+		text-shadow: 0 0 4px rgba( 250, 250, 250, .5 )

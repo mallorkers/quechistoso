@@ -4,7 +4,8 @@ from objects.User import User
 
 flaskApp = Flask(
     __name__,
-    template_folder='../templates')
+    template_folder='../templates',
+    static_folder='../static')
 
 @flaskApp.route('/hola')
 def hola():

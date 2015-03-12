@@ -2,12 +2,40 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/main.css">
 	<title>{{ title }}</title>
 </head>
 <body>
 	
-	<h1> {{ user.name }} </h1>
-	<h1> {{ user.id }} </h1>
+	<nav class="header" >
+		<ul>
+			<li><a href="#"><span class="fa fa-plus-square fa-lg"></span></a></li>
+			<li><a href="#"><span>Home</span></a></li>
+			<li><a href="#"><span>Mejores</span></a></li>
+			<li><a href="#"><span>Aleatorio</span></a></li>
+		</ul>
+		<button><span>Moderar</span></button>
+		<button><span>Login</span></button>
+	</nav>
+
+	<section><!-- Seccion de posts -->
+
+		<article><!-- Post -->
+			<div class="post_header"></div>
+			<div class="post_content"></div>
+		</article>
+
+	</section>
+
+	<div> <!-- Comments box -->
+		<div></div> <!-- header -->
+		<div> <!-- Comment Preview -->
+			<img src="" alt="">
+			<span></span>
+			<p></p>
+		</div>
+	</div>
 
 </body>
 </html>
