@@ -1,5 +1,5 @@
 .vagrant
-static/
+img/
 *.pyc
 
 # Mac Os filesystem
