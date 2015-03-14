@@ -1,8 +1,13 @@
 @import url(reset.css);
 @import 'http://fonts.googleapis.com/css?family=Montserrat:400,700';
+@import 'http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900)';
+* {
+  box-sizing: border-box; }
+
 body {
   font-size: 16px;
-  font-family: "Montserrat"; }
+  font-family: "Montserrat";
+  background-color: #dcdad8; }
 
 a, a:visited, a:link {
   font-style: none;
@@ -57,3 +62,58 @@ button:hover {
     background-color: #476a95; }
   .header li:hover a {
     text-shadow: 0 0 4px rgba(250, 250, 250, 0.5); }
+
+.publication {
+  margin: 1rem auto;
+  width: 600px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(34, 34, 34, 0.2);
+  background-color: #fafafa; }
+
+.publication_header {
+  height: 3.3rem;
+  overflow: hidden;
+  color: #fafafa;
+  letter-spacing: 0.04rem;
+  font-family: Lato;
+  background-color: #80bce5; }
+  .publication_header img {
+    display: block;
+    float: left;
+    height: 100%; }
+
+.publication_header_content {
+  height: 100%;
+  padding: 0.4rem 0.6rem;
+  float: left;
+  font-weight: 300; }
+
+.publication_title {
+  display: block;
+  font-size: 1.1rem; }
+
+.publication_description {
+  margin-top: 0.5rem;
+  display: block;
+  font-size: 0.8rem;
+  color: #f1f1f1; }
+
+.header_buttons {
+  display: block;
+  height: 100%;
+  font-size: 0.9rem;
+  float: right;
+  margin-right: 0.5rem; }
+
+.add_coment_button span:nth-child(2) {
+  margin-top: 0.1rem;
+  margin-left: 0.05rem; }
+
+.thumb_up {
+  padding-top: 0.7rem;
+  height: 100%;
+  background-color: #74abd0; }
+
+.base_color {
+  color: #80bce5; }
