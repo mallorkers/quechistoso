@@ -1,6 +1,15 @@
+#Vagrant files
 .vagrant
+
+#Static files
 img/
+
+#Python compiled files
 *.pyc
 
 # Mac Os filesystem
 .DS_Store
+
+#Mike files
+/designInspiration
+mockup.psd
