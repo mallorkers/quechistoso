@@ -103,7 +103,10 @@ button:hover {
   display: block;
   height: 100%;
   font-size: 0.9rem;
-  float: right;
+  float: right; }
+
+.add_coment_button {
+  margin-top: -1rem;
   margin-right: 0.5rem; }
 
 .add_coment_button span:nth-child(2) {
@@ -111,9 +114,19 @@ button:hover {
   margin-left: 0.05rem; }
 
 .thumb_up {
+  padding: 0 0.7rem;
   padding-top: 0.7rem;
   height: 100%;
   background-color: #74abd0; }
 
 .base_color {
   color: #80bce5; }
+
+.publication_content {
+  padding: 1rem 1rem;
+  color: #353535;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: "Montserrat"; }
+  .publication_content p {
+    margin-bottom: 0.7rem; }
