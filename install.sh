@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 sudo apt-get update
-sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
-sudo pip install Flask pymongo uwsgi
+sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python libffi-dev
+sudo pip install Flask pymongo uwsgi bcrypt
 
 sudo rm /etc/nginx/sites-enabled/*
 
