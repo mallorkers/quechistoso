@@ -25,4 +25,4 @@ class mongoDB:
 			self.db['users'].insert(usr_document)
 		except pymongo.errors.DuplicateKeyError:
 			#TODO: return false?
-			pass
+			print 'Email: ' + user.email + ' not inserted'
