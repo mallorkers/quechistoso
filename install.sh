@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt-get update
-sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi-plugin-python
+sudo apt-get install -y python-dev python-pip mongodb nginx uwsgi uwsgi-plugin-python
 sudo pip install Flask pymongo uwsgi
 
 sudo rm /etc/nginx/sites-enabled/*
@@ -11,6 +11,9 @@ sudo rm /etc/nginx/sites-enabled/*
 # before the /vagrant folder gets mounted, so the servers won't read the config files
 cat /vagrant/configs/vagrant_uwsgi.ini | sudo tee /etc/uwsgi/apps-enabled/vagrant_uwsgi.ini
 cat /vagrant/configs/nginxConfig | sudo tee /etc/nginx/sites-enabled/queChistoso
+
+# Add www-data to the vagrant group so nginx & uwsgi can read data in the /vagrant dir
+sudo usermod -a -G vagrant www-data
 
 #TODO: Decide if continue to setup services this way or modify the upstart jobs to start on vagrant-mount
 
